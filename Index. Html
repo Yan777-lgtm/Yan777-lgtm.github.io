@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para mi niña ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #fff5f8, #ffe4ed);
+            color: #6b4050;
+            overflow-x: hidden;
+        }
+
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(220, 105, 140, 0.25);
+            font-size: 25px;
+            animation: float 8s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 55%;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(4) {
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(110vh) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(-20vh) rotate(360deg);
+            }
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(220, 105, 140, 0.2);
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(160, 80, 110, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        .small {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c27a92;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 10vw, 70px);
+            margin: 0;
+            color: #b85c7b;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            line-height: 1.6;
+            margin: 25px auto;
+            max-width: 450px;
+        }
+
+        .heart-big {
+            font-size: 65px;
+            margin: 20px 0;
+            animation: heartbeat 1.8s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        .start-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            background: #d97998;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(217, 121, 152, 0.25);
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            background: #c96889;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #a77a88;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hearts">
+        <div class="heart">♡</div>
+        <div class="heart">♥</div>
+        <div class="heart">♡</div>
+        <div class="heart">♥</div>
+    </div>
+
+    <main class="container">
+
+        <section class="card">
+
+            <div class="small">
+                Diciembre 2026
+            </div>
+
+            <h1>Para ti ❤️</h1>
+
+            <div class="heart-big">
+                💗
+            </div>
+
+            <p class="subtitle">
+                Preparé algo pequeñito para hacer
+                que cada día de diciembre tenga
+                un pedacito de nosotros.
+            </p>
+
+            <a href="#" class="start-button">
+                Abrir nuestro diciembre ✨
+            </a>
+
+            <div class="signature">
+                Hecho con mucho amor ♡
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

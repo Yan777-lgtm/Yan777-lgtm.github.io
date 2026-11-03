@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestro diciembre ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, #fff5f7, #ffe1ea, #fff8f2);
+      color: #7b4055;
+      padding: 30px 15px;
+      overflow-x: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 8s linear infinite;
+      opacity: 0.45;
+    }
+
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 55%; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 80%; animation-delay: 1s; }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-120px) rotate(360deg);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 10px 0 5px;
+      color: #a94f70;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #8d596b;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .day {
+      border: none;
+      border-radius: 20px;
+      padding: 25px 10px;
+      min-height: 120px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 8px 20px rgba(160, 80, 110, 0.12);
+      color: #8d4661;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: Georgia, serif;
+    }
+
+    .day:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(160, 80, 110, 0.2);
+      background: #fff;
+    }
+
+    .number {
+      display: block;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .emoji {
+      display: block;
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .label {
+      font-size: 14px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #a94f70;
+      font-size: 16px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(80, 30, 50, 0.45);
+      z-index: 10;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #fff8fa;
+      border-radius: 25px;
+      padding: 35px 25px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 15px 40px rgba(80, 30, 50, 0.25);
+      position: relative;
+      animation: pop 0.3s ease;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal h2 {
+      color: #a94f70;
+      margin-top: 0;
+    }
+
+    .modal p {
+      line-height: 1.7;
+      color: #704052;
+    }
+
+    .close {
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      border: none;
+      background: none;
+      font-size: 25px;
+      color: #a94f70;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .calendar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .day {
+        min-height: 110px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts">
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+  </div>
+
+  <div class="container">
+
+    <h1>Nuestro diciembre 🎄❤️</h1>
+
+    <p class="subtitle">
+      24 pequeños pedacitos de amor, uno para cada día ✨
+    </p>
+
+    <div class="calendar">
+
+      <button class="day" onclick="openDay(1)">
+        <span class="number">1</span>
+        <span class="emoji">💌</span>
+        <span class="label">Una cartita</span>
+      </button>
+
+      <button class="day" onclick="openDay(2)">
+        <span class="number">2</span>
+        <span class="emoji">📸</span>
+        <span class="label">Un recuerdo</span>
+      </button>
+
+      <button class="day" onclick="openDay(3)">
+        <span class="number">3</span>
+        <span class="emoji">❤️</span>
+        <span class="label">3 razones</span>
+      </button>
+
+      <button class="day" onclick="openDay(4)">
+        <span class="number">4</span>
+        <span class="emoji">🎵</span>
+        <span class="label">Una canción</span>
+      </button>
+
+      <button class="day" onclick="openDay(5)">
+        <span class="number">5</span>
+        <span class="emoji">😂</span>
+        <span class="label">Algo random</span>
+      </button>
+
+      <button class="day" onclick="openDay(6)">
+        <span class="number">6</span>
+        <span class="emoji">💗</span>
+        <span class="label">6 cositas</span>
+      </button>
+
+      <button class="day" onclick="openDay(7)">
+        <span class="number">7</span>
+        <span class="emoji">🎥</span>
+        <span class="label">Un video</span>
+      </button>
+
+      <button class="day" onclick="openDay(8)">
+        <span class="number">8</span>
+        <span class="emoji">🎟️</span>
+        <span class="label">Un vale</span>
+      </button>
+
+      <button class="day" onclick="openDay(9)">
+        <span class="number">9</span>
+        <span class="emoji">🧠</span>
+        <span class="label">Un mini quiz</span>
+      </button>
+
+      <button class="day" onclick="openDay(10)">
+        <span class="number">10</span>
+        <span class="emoji">🥹</span>
+        <span class="label">Otra cartita</span>
+      </button>
+
+      <button class="day" onclick="openDay(11)">
+        <span class="number">11</span>
+        <span class="emoji">💬</span>
+        <span class="label">Un recuerdo nuestro</span>
+      </button>
+
+      <button class="day" onclick="openDay(12)">
+        <span class="number">12</span>
+        <span class="emoji">🎄</span>
+        <span class="label">Mitad del camino</span>
+      </button>
+
+      <button class="day" onclick="openDay(13)">
+        <span class="number">13</span>
+        <span class="emoji">🎨</span>
+        <span class="label">Algo hecho por mí</span>
+      </button>
+
+      <button class="day" onclick="openDay(14)">
+        <span class="number">14</span>
+        <span class="emoji">🍫</span>
+        <span class="label">Un antojito</span>
+      </button>
+
+      <button class="day" onclick="openDay(15)">
+        <span class="number">15</span>
+        <span class="emoji">🫶</span>
+        <span class="label">Pienso en ti</span>
+      </button>
+
+      <button class="day" onclick="openDay(16)">
+        <span class="number">16</span>
+        <span class="emoji">🧩</span>
+        <span class="label">Un acertijo</span>
+      </button>
+
+      <button class="day" onclick="openDay(17)">
+        <span class="number">17</span>
+        <span class="emoji">📷</span>
+        <span class="label">Antes y ahora</span>
+      </button>
+
+      <button class="day" onclick="openDay(18)">
+        <span class="number">18</span>
+        <span class="emoji">💋</span>
+        <span class="label">Un vale especial</span>
+      </button>
+
+      <button class="day" onclick="openDay(19)">
+        <span class="number">19</span>
+        <span class="emoji">🌹</span>
+        <span class="label">Un día para nosotros</span>
+      </button>
+
+      <button class="day" onclick="openDay(20)">
+        <span class="number">20</span>
+        <span class="emoji">🎬</span>
+        <span class="label">Una película</span>
+      </button>
+
+      <button class="day" onclick="openDay(21)">
+        <span class="number">21</span>
+        <span class="emoji">🔮</span>
+        <span class="label">Desde el futuro</span>
+      </button>
+
+      <button class="day" onclick="openDay(22)">
+        <span class="number">22</span>
+        <span class="emoji">🙏</span>
+        <span class="label">Gracias por...</span>
+      </button>
+
+      <button class="day" onclick="openDay(23)">
+        <span class="number">23</span>
+        <span class="emoji">👀</span>
+        <span class="label">Una pista</span>
+      </button>
+
+      <button class="day" onclick="openDay(24)">
+        <span class="number">24</span>
+        <span class="emoji">🎁</span>
+        <span class="label">La sorpresa ❤️</span>
+      </button>
+
+    </div>
+
+    <a href="index.html" class="back">← Volver al inicio</a>
+
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">×</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <script>
+    const messages = {
+      1: "Aquí irá una cartita escrita especialmente para ti 💌",
+      2: "Aquí pondremos una foto y la historia detrás de ese recuerdo 📸",
+      3: "Aquí te contaré tres razones por las que te quiero ❤️",
+      4: "Aquí pondremos una canción que me haga pensar en ti 🎵",
+      5: "Aquí habrá algo completamente random para hacerte reír 😂",
+      6: "Seis pequeñas cosas que adoro de ti 💗",
+      7: "Aquí podremos poner un video especial 🎥",
+      8: "Un vale que podrás usar conmigo cuando quieras 🎟️",
+      9: "Un pequeño quiz sobre nosotros 🧠",
+      10: "Una segunda cartita, porque una nunca es suficiente 🥹",
+      11: "Un recuerdo que siempre voy a guardar 💬",
+      12: "Ya llegamos a la mitad. Y todavía queda muchísimo amor 🎄",
+      13: "Algo que hice especialmente para ti 🎨",
+      14: "Un pequeño antojito para ti 🍫",
+      15: "Solo quería recordarte que pienso en ti 🫶",
+      16: "Un pequeño acertijo para ti 🧩",
+      17: "Una comparación entre nuestro antes y nuestro ahora 📷",
+      18: "Un vale especial solo para ti 💋",
+      19: "Un día que quiero pasar contigo 🌹",
+      20: "Nuestra película o una que quiero ver contigo 🎬",
+      21: "Un mensaje escrito desde nuestro futuro 🔮",
+      22: "Todo lo que quiero agradecerte 🙏",
+      23: "Una pequeña pista sobre lo que viene mañana 👀",
+      24: "La sorpresa final. Nuestro último pedacito de diciembre 🎁❤️"
+    };
+
+    function openDay(day) {
+      document.getElementById("modalTitle").textContent =
+        "Día " + day + " ❤️";
+
+      document.getElementById("modalText").textContent =
+        messages[day];
+
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
+
+</body>
+          </html>
